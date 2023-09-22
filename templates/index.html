@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Machine Learning App</h1>
+    <form method="POST" action="/predict">
+        <label for="feature1">Feature 1:</label>
+        <input type="text" id="feature1" name="feature1" required>
+        <br>
+        <label for="feature2">Feature 2:</label>
+        <input type="text" id="feature2" name="feature2" required>
+        <br>
+        <label for="feature3">Feature 3:</label>
+        <input type="text" id="feature3" name="feature3" required>
+        <br>
+        <label for="feature4">Feature 4:</label>
+        <input type="text" id="feature4" name="feature4" required>
+        <br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if error_message %}
+    <h2>Error:</h2>
+    <p class="error">{{ error_message }}</p>
+    {% endif %}
+    {% if prediction %}
+    <h2>Prediction:</h2>
+    <p>{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
